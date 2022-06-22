@@ -1,25 +1,27 @@
 <?php
-    
-  include 'koneksi.php';
+// session_start();
+
+// if (!isset($_SESSION['login'])) {
+//     header('Location: login.php');
+//     exit;
+// }
+
+include 'koneksi.php';
 
 if (isset($_POST["submit"])) {
 
-
-if (tambah($_POST) > 0) {
-    echo "<script>
+    if (tambah($_POST) > 0) {
+        echo "<script>
     alert('okee berhasil');
-    document.location.href = 'http://localhost/sandhika_Mysql/';
+
     </script>";
-}else{
-    echo "<script>
+    } else {
+        echo "<script>
     alert('yahh gagal')
     </script>";
-}
+    }
 
 }
-
-
-
 
 ?>
 
@@ -36,7 +38,7 @@ if (tambah($_POST) > 0) {
 <body>
     <h1>tambah data mahasiswa</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="nrp">NRP :</label>
@@ -64,7 +66,7 @@ if (tambah($_POST) > 0) {
         <ul>
             <li>
                 <label for="gambar">gambar :</label>
-                <input type="text" name="gambar" id="gambar">
+                <input type="file" name="gambar" id="gambar">
             </li>
         </ul>
         <ul>
@@ -73,6 +75,8 @@ if (tambah($_POST) > 0) {
             </li>
         </ul>
     </form>
+
+    <a href="./index.php">kembali</a>
 </body>
 
 </html>
